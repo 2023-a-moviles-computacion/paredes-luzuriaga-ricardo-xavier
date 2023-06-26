@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "818426626539",
+    "project_id": "a-mov-com-rxpl",
+    "storage_bucket": "a-mov-com-rxpl.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818426626539:android:61da646ba903d448db99ae",
+        "android_client_info": {
+          "package_name": "com.example.imspiderman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "818426626539-4fo4ja757ka8b51ucrt79g6mdqisc7qk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXIA7gN_qVTz8En4e7uiWjM0P5cKnYPjs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "818426626539-4fo4ja757ka8b51ucrt79g6mdqisc7qk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
