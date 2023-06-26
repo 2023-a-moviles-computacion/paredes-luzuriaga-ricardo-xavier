@@ -13,6 +13,7 @@
         android:theme="@style/Theme.ImSpiderman"
         tools:targetApi="31">
         <activity
+<<<<<<< HEAD
             android:name=".BListView"
             android:exported="false">
             <meta-data
@@ -36,6 +37,8 @@
                 android:value="" />
         </activity>
         <activity
+=======
+>>>>>>> main
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

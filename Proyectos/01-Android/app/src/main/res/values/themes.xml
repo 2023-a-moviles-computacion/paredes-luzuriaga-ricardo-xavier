@@ -13,6 +13,7 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+<<<<<<< HEAD
 
     <style name="Theme.ImSpiderman.NoActionBar">
         <item name="windowActionBar">false</item>
@@ -22,4 +23,6 @@
     <style name="Theme.ImSpiderman.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.ImSpiderman.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+=======
+>>>>>>> main
 </resources>
