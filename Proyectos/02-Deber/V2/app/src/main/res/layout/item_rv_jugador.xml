@@ -9,10 +9,10 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cvJugador"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="282dp"
         app:cardCornerRadius="5dp"
-        app:cardUseCompatPadding="true"
-        app:cardElevation="5dp">
+        app:cardElevation="5dp"
+        app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -26,52 +26,58 @@
                 android:gravity="center"
                 android:hint="Nombre"
                 android:padding="5dp" />
+
             <TextView
+                android:id="@+id/tvPosicion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvPosicion"
-                android:hint="Posición"
                 android:gravity="center"
+                android:hint="Posición"
                 android:padding="5dp" />
 
             <TextView
                 android:id="@+id/tvEdad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:hint="Edad"
-                android:gravity="center"
                 android:padding="5dp" />
+
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/tvEstatura"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
                 android:hint="Estatura"
-                android:gravity="center"
                 android:padding="5dp" />
+
             <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
                 android:id="@+id/tvDorsal"
-                android:hint="Dorsal"
-                android:gravity="center"
-                android:padding="5dp" />
-            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="Dorsal"
+                android:padding="5dp" />
+
+            <TextView
                 android:id="@+id/tvFechaNacimiento"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:hint="Fecha de Nacimiento"
                 android:padding="5dp" />
+
             <TextView
+                android:id="@+id/tvConvocado"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvConvocado"
-                android:hint="Convocado"
                 android:gravity="center"
+                android:hint="Convocado"
                 android:padding="5dp" />
 
             <Button
                 android:id="@+id/btnBorrar"
+                style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

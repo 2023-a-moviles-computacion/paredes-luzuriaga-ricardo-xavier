@@ -72,7 +72,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvJugadores"
         android:layout_width="match_parent"
-        android:layout_height="291dp"
+        android:layout_height="269dp"
         tools:listitem="@layout/item_rv_jugador" />
 
 </LinearLayout>
