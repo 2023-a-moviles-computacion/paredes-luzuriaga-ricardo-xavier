@@ -1,7 +1,5 @@
 package com.example.deber
 
-
-import com.example.crud_room_kotlin.R
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -24,9 +22,10 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
         binding.rvJugadores.layoutManager = LinearLayoutManager(this)
+
         room = Room.databaseBuilder(this,Database::class.java,"Database").build()
+
         obtenerJugadores(room)
 
         binding.btnAddUpdate.setOnClickListener{
@@ -34,20 +33,23 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
                 Toast.makeText(this, "DEBES LLENAR TODOS LOS CAMPOS", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+
             if (binding.btnAddUpdate.text.equals("agregar")){
                 jugador = Jugador(
-
                     binding.etNombre.text.toString().trim(),
-                    binding.etFechaNacimiento.text.toString().trim(),
                     binding.etEdad.text.toString().trim().toInt(),
                     binding.etDorsal.text.toString().trim().toInt(),
+                    binding.etFechaNacimiento.text.toString().trim(),
                     binding.etEstatura.text.toString().trim().toDouble(),
                     binding.etPosicion.text.toString().trim(),
-                    binding.cbConvocado.isChecked()
+                    binding.cbConvocado.isChecked
                 )
                 agregarJugador(room, jugador)
             }else if(binding.btnAddUpdate.text.equals("actualizar")){
                 jugador.edad = binding.etEdad.text.toString().trim().toInt()
+                jugador.dorsal = binding.etDorsal.text.toString().trim().toInt()
+                jugador.posicion = binding.etPosicion.text.toString().trim()
+                jugador.convocado = binding.cbConvocado.isChecked
                 actualizarJugador(room, jugador)
             }
         }
@@ -57,7 +59,7 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
         lifecycleScope.launch {
             listaJugadores = room.daoJugador().obtenerJugadores()
             adaptador = AdaptadorJugadores(listaJugadores,this@MainActivity)
-
+            binding.rvJugadores.adapter = adaptador
         }
     }
 
@@ -71,7 +73,7 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
 
     fun actualizarJugador(room: Database, jugador: Jugador){
         lifecycleScope.launch {
-            room.daoJugador().actualizarJugador(jugador.nombre,jugador.edad)
+            room.daoJugador().actualizarJugador(jugador.nombre,jugador.edad, jugador.posicion, jugador.dorsal, jugador.convocado)
             obtenerJugadores(room)
             limpiarCampos()
         }
@@ -93,7 +95,7 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
         binding.etFechaNacimiento.setText("")
 
         if(binding.btnAddUpdate.text.equals("actualizar")){
-            binding.btnAddUpdate.setText("Agregar")
+            binding.btnAddUpdate.setText("agregar")
             binding.etNombre.isEnabled=true
         }
     }
@@ -101,9 +103,16 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
     override fun onEditItemClick(jugador: Jugador) {
         binding.btnAddUpdate.setText("actualizar")
         binding.etNombre.isEnabled = false
-        this.jugador=jugador
+        binding.etFechaNacimiento.isEnabled = false
+        binding.etEstatura.isEnabled = false
+        this.jugador = jugador
         binding.etNombre.setText(this.jugador.nombre)
-        binding.etEdad.setText(this.jugador.edad)
+        binding.etFechaNacimiento.setText(this.jugador.fechaNacimiento)
+        binding.etEstatura.setText(this.jugador.estatura.toString())
+        binding.etEdad.setText(this.jugador.edad.toString())
+        binding.etDorsal.setText(this.jugador.dorsal.toString())
+        binding.etPosicion.setText(this.jugador.posicion)
+
     }
 
     override fun onDeleteItemClick(jugador: Jugador) {

@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal">
@@ -13,8 +12,7 @@
         android:layout_height="wrap_content"
         app:cardCornerRadius="5dp"
         app:cardUseCompatPadding="true"
-        app:cardElevation="5dp"
-        tools:ignore="MissingConstraints">
+        app:cardElevation="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,14 +26,14 @@
                 android:gravity="center"
                 android:hint="Nombre"
                 android:padding="5dp" />
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvFechaNacimiento"
+                android:id="@+id/tvPosicion"
+                android:hint="Posición"
                 android:gravity="center"
-                android:hint="Fecha de Nacimiento"
                 android:padding="5dp" />
+
             <TextView
                 android:id="@+id/tvEdad"
                 android:layout_width="match_parent"
@@ -60,9 +58,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvPosicion"
-                android:hint="Posición"
+                android:id="@+id/tvFechaNacimiento"
                 android:gravity="center"
+                android:hint="Fecha de Nacimiento"
                 android:padding="5dp" />
             <TextView
                 android:layout_width="match_parent"
@@ -71,16 +69,22 @@
                 android:hint="Convocado"
                 android:gravity="center"
                 android:padding="5dp" />
+
             <Button
+                android:id="@+id/btnBorrar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btnBorrar"
-                android:text="Borrar"
                 android:layout_gravity="center"
-                android:padding="5dp"/>
+                android:background="#2196F3"
+                android:padding="5dp"
+                android:text="Borrar"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:cornerRadius="5px"
+                app:iconTint="#2F628A"
+                app:strokeColor="#651010" />
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
