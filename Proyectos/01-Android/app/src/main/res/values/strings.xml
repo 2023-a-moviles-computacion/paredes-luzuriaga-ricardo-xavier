@@ -1,16 +1,21 @@
-<resources>
-    <string name="app_name">ImSpiderman</string>
-<<<<<<< HEAD
-    <string name="texto"> Bienvenida</string>
-    <string name="title_activity_aaciclo_vida">AACicloVida</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name" translatable="false">ImSpiderman</string>
 
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-=======
->>>>>>> main
+    <string name="texto"> Bienvenida</string>
+    <string name="title_activity_aaciclo_vida" translatable="false">AACicloVida</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label" translatable="false">First Fragment</string>
+    <string name="second_fragment_label" tools:ignore="MissingTranslation">Second Fragment</string>
+    <string name="next" tools:ignore="MissingTranslation">Next</string>
+    <string name="previous" tools:ignore="MissingTranslation">Previous</string>
+
+    <string name="hello_first_fragment" tools:ignore="MissingTranslation">Hello first fragment</string>
+    <string name="hello_second_fragment" tools:ignore="MissingTranslation">Hello second fragment. Arg: %1$s</string>
+
+    <string-array name="String_array_opciones_dialogo">
+        <item>Lunes</item>
+        <item>Martes</item>
+        <item>Miercoles</item>
+    </string-array>
+
 </resources>
