@@ -97,6 +97,8 @@ class MainActivity : AppCompatActivity(), AdaptadorListener {
         if(binding.btnAddUpdate.text.equals("actualizar")){
             binding.btnAddUpdate.setText("agregar")
             binding.etNombre.isEnabled=true
+            binding.etFechaNacimiento.isEnabled=true
+            binding.etEstatura.isEnabled=true
         }
     }
 
