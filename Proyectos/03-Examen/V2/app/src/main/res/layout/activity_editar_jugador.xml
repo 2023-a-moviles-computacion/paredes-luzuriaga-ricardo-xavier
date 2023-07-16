@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".editar_jugador">
+
+    <EditText
+        android:id="@+id/etENombreJ"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="480dp"
+        android:ems="10"
+        android:hint="Nombre"
+        android:textColor="#091442"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/btnEditarJ"
+        app:layout_constraintEnd_toEndOf="@+id/btnEditarJ"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="@+id/btnEditarJ" />
+
+    <EditText
+        android:id="@+id/etEEdadJ"
+        android:layout_width="140dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="336dp"
+        android:ems="10"
+        android:hint="Edad"
+        android:textColor="#091442"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/btnEditarJ"
+        app:layout_constraintEnd_toEndOf="@+id/etENombreJ"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etENombreJ"
+        app:layout_constraintTop_toBottomOf="@+id/etENombreJ"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <EditText
+        android:id="@+id/etEEstaturaJ"
+        android:layout_width="140dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="40dp"
+        android:ems="10"
+        android:hint="Estatura"
+        android:textColor="#091442"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/etENombreJ"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/etENombreJ"
+        app:layout_constraintTop_toBottomOf="@+id/etENombreJ" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre"
+        android:textColor="#091442"
+        app:layout_constraintBottom_toTopOf="@+id/etENombreJ"
+        app:layout_constraintEnd_toEndOf="@+id/etENombreJ"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etENombreJ" />
+
+    <ImageButton
+        android:id="@+id/imbERegresarRH"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.121"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976"
+        app:srcCompat="@drawable/baseline_arrow_back_24" />
+
+    <Button
+        android:id="@+id/btnEditarJ"
+        android:layout_width="175dp"
+        android:layout_height="54dp"
+        android:background="#3562A6"
+        android:text="Editar Jugador"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Estatura"
+        android:textColor="#091442"
+        app:layout_constraintBottom_toTopOf="@+id/etEEstaturaJ"
+        app:layout_constraintEnd_toEndOf="@+id/etEEstaturaJ"
+        app:layout_constraintHorizontal_bias="0.021"
+        app:layout_constraintStart_toStartOf="@+id/etEEstaturaJ" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edad"
+        android:textColor="#091442"
+        app:layout_constraintBottom_toTopOf="@+id/etEEdadJ"
+        app:layout_constraintEnd_toEndOf="@+id/etEEdadJ"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etEEdadJ" />
+
+    <EditText
+        android:id="@+id/etEPosicionJ"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="312dp"
+        android:ems="10"
+        android:hint="Posición"
+        android:textColor="#091442"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/etENombreJ"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etENombreJ"
+        app:layout_constraintTop_toBottomOf="@+id/etENombreJ" />
+
+    <EditText
+        android:id="@+id/etEConvocadoJ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:ems="10"
+        android:hint="Convocado"
+        android:textColor="#091442"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/etENombreJ"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etENombreJ"
+        app:layout_constraintTop_toBottomOf="@+id/etENombreJ" />
+
+    <EditText
+        android:id="@+id/etEFechaNacimientoJ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="128dp"
+        android:ems="10"
+        android:hint="Fecha"
+        android:inputType="text"
+        android:textColor="#091442"
+        app:layout_constraintEnd_toEndOf="@+id/etENombreJ"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etENombreJ"
+        app:layout_constraintTop_toBottomOf="@+id/etENombreJ" />
+
+    <TextView
+        android:id="@+id/textView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Dorsal"
+        android:textColor="#091442"
+        app:layout_constraintBottom_toTopOf="@+id/etEDorsalJ"
+        app:layout_constraintEnd_toEndOf="@+id/etEDorsalJ"
+        app:layout_constraintHorizontal_bias="0.008"
+        app:layout_constraintStart_toStartOf="@+id/etEDorsalJ" />
+
+    <EditText
+        android:id="@+id/etEDorsalJ"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="400dp"
+        android:ems="10"
+        android:hint="Dorsal"
+        android:textColor="#091442"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/etENombreJ"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etENombreJ"
+        app:layout_constraintTop_toBottomOf="@+id/etENombreJ" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Fecha de Nacimiento"
+        android:textColor="#091442"
+        app:layout_constraintBottom_toTopOf="@+id/etEFechaNacimientoJ"
+        app:layout_constraintEnd_toEndOf="@+id/etEFechaNacimientoJ"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etEFechaNacimientoJ" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="¿Está Convocado?"
+        android:textColor="#091442"
+        app:layout_constraintBottom_toTopOf="@+id/etEConvocadoJ"
+        app:layout_constraintEnd_toEndOf="@+id/etEConvocadoJ"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etEConvocadoJ" />
+
+    <TextView
+        android:id="@+id/textView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Posición"
+        android:textColor="#091442"
+        app:layout_constraintBottom_toTopOf="@+id/etEPosicionJ"
+        app:layout_constraintEnd_toEndOf="@+id/etEPosicionJ"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etEPosicionJ" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

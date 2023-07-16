@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <Button
+        android:id="@+id/btnCambiarModo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Cambiar Modo" />
+    <!-- Layout for Equipo -->
+    <LinearLayout
+        android:id="@+id/cvEquipo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/tvEquipoTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Equipo"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etNombreEquipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:hint="Nombre del Equipo" />
+
+        <EditText
+            android:id="@+id/etPais"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:hint="País" />
+
+        <EditText
+            android:id="@+id/etAnioFundacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:hint="Año de Fundación" />
+
+        <Button
+            android:id="@+id/btnAgregarActualizarEquipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:background="#673AB7"
+            android:padding="5dp"
+            android:text="agregar"
+            android:textColor="@color/white"
+            app:iconTint="#673AB7"
+            app:strokeColor="#651010"/>
+
+
+        <Button
+            android:id="@+id/btnCancelarEquipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:background="#673AB7"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            app:iconTint="#673AB7"
+            app:strokeColor="#651010"
+            android:text="Cancelar"
+            android:visibility="visible" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/black"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+
+    <!-- Layout for Jugador -->
+    <LinearLayout
+        android:id="@+id/cvJugador"
+        android:layout_width="match_parent"
+        android:layout_height="424dp"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="visible">
+
+
+        <EditText
+            android:id="@+id/etNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:hint="Nombre" />
+
+        <EditText
+            android:id="@+id/etPosicion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:hint="Posición" />
+
+        <EditText
+            android:id="@+id/etEdad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:hint="Edad" />
+
+        <EditText
+            android:id="@+id/etEstatura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:hint="Estatura" />
+
+        <EditText
+            android:id="@+id/etDorsal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:hint="Dorsal" />
+
+        <EditText
+            android:id="@+id/etFechaNacimiento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:hint="Fecha de Nacimiento" />
+
+        <CheckBox
+            android:id="@+id/cbConvocado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Convocado" />
+
+        <Spinner
+            android:id="@+id/spinnerEquipos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/btnAddUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:background="#673AB7"
+            android:padding="5dp"
+            android:textColor="@color/white"
+            app:iconTint="#673AB7"
+            app:strokeColor="#651010"
+            android:text="agregar" />
+
+        <Button
+            android:id="@+id/btnCancelarJugador"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp"
+            android:background="#673AB7"
+            android:padding="5dp"
+            android:text="Cancelar"
+            android:textColor="@color/white"
+            app:iconTint="#673AB7"
+            app:strokeColor="#651010" />
+
+    </LinearLayout>
+    <!-- RecyclerView for Equipos -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvEquipos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_rv_equipo" />
+
+    <!-- RecyclerView for Jugadores -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvJugadores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/item_rv_jugador" />
+
+
+
+</LinearLayout>
