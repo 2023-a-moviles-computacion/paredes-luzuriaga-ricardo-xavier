@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "193066082254",
+    "project_id": "examenii-20954",
+    "storage_bucket": "examenii-20954.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193066082254:android:c0a0ff83c0abd22f91959f",
+        "android_client_info": {
+          "package_name": "com.example.equipos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiyyc7xN40ye06zSdYB3dPC3DGpdVfQxQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

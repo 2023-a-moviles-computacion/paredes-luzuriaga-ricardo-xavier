@@ -10,15 +10,15 @@
         android:id="@+id/etENombreJ"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="480dp"
+        android:layout_marginTop="84dp"
         android:ems="10"
         android:hint="Nombre"
-        android:textColor="#091442"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/btnEditarJ"
-        app:layout_constraintEnd_toEndOf="@+id/btnEditarJ"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="@+id/btnEditarJ" />
+        android:textColor="#091442"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/etEEdadJ"

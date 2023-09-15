@@ -6,12 +6,15 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
 import java.util.Date
 
 class ingreso_equipo: AppCompatActivity(){
     private val arreglo = BaseEquipos.arregloEquipos
     private var nextId = arreglo.size+1
+    private var id =  BaseDatos.equiposFire.size+1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,21 +26,23 @@ class ingreso_equipo: AppCompatActivity(){
         }
         val botonIngresarE = findViewById<Button>(R.id.btnGuardarE)
         botonIngresarE.setOnClickListener {
-            val nombre = findViewById<EditText>(R.id.etNombreE)
-            val pais = findViewById<EditText>(R.id.etPaisE)
+            val nombre1 = findViewById<EditText>(R.id.etNombreE)
+            val pais1 = findViewById<EditText>(R.id.etPaisE)
             val fecha = findViewById<EditText>(R.id.etFechaFundacionE)
-            val fechaString  = fecha.text.toString()
-            // Create a SimpleDateFormat to parse the date input
-            val dateFormat = SimpleDateFormat("dd-MM-yyyy")
-            val fechaFundacion: Date = try {
-                dateFormat.parse(fechaString)
-            } catch (e: Exception) {
-                Date()
-            }
-            val jugadores = ArrayList<Jugador>()
-            val equipo = Equipo(nextId,nombre.text.toString(), pais.text.toString(),fechaFundacion.toString(),jugadores)
-            BaseEquipos.arregloEquipos.add(equipo)
-            nextId++
+
+            val nombre = nombre1.text.toString()
+            val pais = pais1.text.toString()
+            val fechaFundacion  = fecha.text.toString()
+
+            val db = Firebase.firestore
+            val equipos = db.collection("equipos")
+            val data = hashMapOf(
+                "nombre" to nombre,
+                "pais" to pais,
+                "fechaFundacion" to fechaFundacion
+            )
+            equipos.document("${id}").set(data)
+            println("Esta aquí ${id}")
             irActividad(Equipos::class.java)
         }
     }
@@ -47,6 +52,10 @@ class ingreso_equipo: AppCompatActivity(){
     ){
         val intent= Intent(this,clase)
         startActivity(intent)
+    }
+
+    fun limpiarArreglo(){
+        BaseDatos.equiposFire.clear()
     }
 
     }

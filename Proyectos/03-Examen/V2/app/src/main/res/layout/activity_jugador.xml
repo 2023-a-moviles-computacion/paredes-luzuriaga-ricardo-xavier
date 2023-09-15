@@ -50,7 +50,7 @@
 
     <ListView
         android:id="@+id/lvJugadores"
-        android:layout_width="359dp"
+        android:layout_width="360dp"
         android:layout_height="446dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

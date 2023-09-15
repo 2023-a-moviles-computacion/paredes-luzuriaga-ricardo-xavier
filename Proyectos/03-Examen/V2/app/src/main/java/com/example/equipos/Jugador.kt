@@ -3,14 +3,15 @@ package com.example.equipos
 import java.text.SimpleDateFormat
 
 class Jugador (
-    val id:Int,
+    var id:Int,
     var nombre: String?,
     var edad: Int?,
     var dorsal: Int?,
     var fechaNacimiento: String?,
     var estatura: Double?,
     var posicion: String?,
-    var convocado: Boolean
+    var convocado: Boolean,
+    var foranea: Int?
 ){
     override fun toString(): String {
         val aux:String

@@ -14,6 +14,8 @@ import android.widget.ListView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import java.text.SimpleDateFormat
 
 class Jugadores: AppCompatActivity(){
@@ -21,26 +23,28 @@ class Jugadores: AppCompatActivity(){
     private lateinit var adaptador: ArrayAdapter<Jugador>
     var jugadorSeleccionado = 0
     var equipoSeleccionado = 0
+    var jugadoresList = BaseDatos.tablaJugador?.consultarJugadoresPorForanea(equipoSeleccionado)?: emptyList()
 
     val callbackContenidoCIntentExplicito = registerForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ){
         /*
-        *val id:Int,
-    var nombre: String,
-    var edad: Int,
-    var dorsal: Int,
-    var fechaNacimiento: String,
-    var estatura: Double,
-    var posicion: String,
-    var convocado: Boolean
+        *var id:Int,
+        var nombre: String,
+        var edad: Int,
+        var dorsal: Int,
+        var fechaNacimiento: String,
+        var estatura: Double,
+        var posicion: String,
+        var convocado: Boolean,
+        var foranea: Int
         * */
         result ->
         if(result.resultCode== Activity.RESULT_OK){
             if(result.data !=null) {
                 val data=result.data
                 val nombreModificado = data?.getStringExtra("nombreModificado")
-                val edadModificado = data?.getIntExtra("edadModificado",0)
+                /*val edadModificado = data?.getIntExtra("edadModificado",0)
                 val dorsalModificado = data?.getIntExtra("dorsalModificado",0)
                 val fechaNacimientoModificado = data?.getStringExtra("fechaNacimientoModificado")
                 val estaturaModificado = data?.getDoubleExtra("estaturaModificado",0.0)
@@ -55,10 +59,11 @@ class Jugadores: AppCompatActivity(){
                     estaturaModificado,
                     posicionModificado,
                     false
-                )
-
+                )*/
+                consultarJugador(adaptador)
+                /*
                 BaseEquipos.arregloEquipos[equipoSeleccionado]?.jugadores?.set(jugadorSeleccionado, jugador)
-                adaptador.notifyDataSetChanged()
+                adaptador.notifyDataSetChanged()*/
 
             }
         }
@@ -68,19 +73,22 @@ class Jugadores: AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_jugador)
         //Recibir parámetro
-        equipoSeleccionado = intent.getIntExtra("id",0)
-        val equipo = BaseEquipos.arregloEquipos.find { it.id == equipoSeleccionado+1 }
-        arregloJugadores = equipo?.jugadores?: arrayListOf()
-
+        equipoSeleccionado = intent.getIntExtra("id",1)
+        //val equipo = BaseEquipos.arregloEquipos.find { it.id == equipoSeleccionado+1 }
+        /*arregloJugadores = equipo?.jugadores?: arrayListOf()
+        */
         //Crear el ListView y el adaptador
         val listView = findViewById<ListView>(R.id.lvJugadores)
         adaptador = ArrayAdapter(
             this,
             android.R.layout.simple_list_item_1,
-            arregloJugadores!!
-        )
+            //BaseDatos.jugadoresFire
+            BaseJugadores.arregloJugadores
+            )
         listView.adapter = adaptador
         adaptador.notifyDataSetChanged()
+
+        consultarJugador(adaptador)
         registerForContextMenu(listView)
 
         //Crear Jugador
@@ -109,6 +117,7 @@ class Jugadores: AppCompatActivity(){
         val intent= Intent(this,clase)
         startActivity(intent)
     }
+
     fun devolverRespuesta(){
         val intentDevolverParametros = Intent()
         intentDevolverParametros.putExtra("nombreModificado","Eden Hazard")
@@ -132,7 +141,7 @@ class Jugadores: AppCompatActivity(){
         //obtener el id del Arraylist seleccionado
         val info = menuInfo as AdapterView.AdapterContextMenuInfo
         val id = info.position
-        jugadorSeleccionado=id
+        jugadorSeleccionado=id+1
     }
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
@@ -153,11 +162,14 @@ class Jugadores: AppCompatActivity(){
     }
     fun abrirDialogo(equipoIndex: Int,jugadorIndex: Int) {
         val builder = AlertDialog.Builder(this)
-        builder.setTitle("Desea eliminar")
+        builder.setTitle("¿Desea eliminar?")
         builder.setPositiveButton("Aceptar") { dialog, which ->
-            BaseEquipos.arregloEquipos[equipoIndex]?.jugadores?.removeAt(jugadorIndex)
-            adaptador.notifyDataSetChanged()
+            val id = equipoIndex
+            //BaseEquipos.arregloEquipos[equipoIndex]?.jugadores?.removeAt(jugadorIndex)
+            //adaptador.notifyDataSetChanged()
+            eliminarRegistro(id)
             dialog.dismiss()
+            abrirActividadConParametro(Jugadores::class.java, equipoSeleccionado)
         }
         builder.setNegativeButton("Cancelar", null)
 
@@ -175,4 +187,60 @@ class Jugadores: AppCompatActivity(){
         callbackContenidoCIntentExplicito.launch(intentExplito)
 
     }
+    fun abrirActividadConParametro(
+        clase: Class<*>,equipoSeleccionado:Int
+    ){
+        val intentExplito= Intent(this,clase)
+        intentExplito.putExtra("id",equipoSeleccionado)
+
+        callbackContenidoCIntentExplicito.launch(intentExplito)
+    }
+
+    fun limpiarArreglo(){
+        BaseDatos.jugadoresFire.clear()
+    }
+
+    fun consultarJugador(
+        adaptador: ArrayAdapter<Jugador>
+    ){
+        val db= Firebase.firestore
+        val jugadoresRefUnico = db.collection("jugadores")
+        limpiarArreglo()
+        adaptador.notifyDataSetChanged()
+        jugadoresRefUnico.get().addOnSuccessListener {
+            querySnapshot ->
+            for(document in querySnapshot){
+                var jugadorxd = (document.data?.get("foranea") as String?)?.toInt()
+                if(equipoSeleccionado == jugadorxd){
+                    BaseDatos.jugadoresFire.add(
+                        Jugador(
+                            document.id.toInt(),
+                            document.data?.get("nombre") as String?,
+                            (document.data?.get("edad") as String?)?.toInt(),
+                            (document.data?.get("dorsal") as String?)?.toInt(),
+                            document.data?.get("fechaNacimiento") as String?,
+                            (document.data?.get("estatura") as String?)?.toDouble(),
+                            document.data?.get("posicion") as String?,
+                            (document.data?.get("convocado") as String?).toBoolean(),
+                            (document.data?.get("foranea") as String?)?.toInt(),
+                        )
+                    )
+                }
+            }
+            adaptador.notifyDataSetChanged()
+        }
+            .addOnFailureListener {  }
+    }
+
+    fun eliminarRegistro(id: Int){
+        var cadena = "${id}"
+        val db = Firebase.firestore
+        val refJugador = db.collection("jugadores")
+        refJugador
+            .document(cadena)
+            .delete()
+            .addOnCompleteListener{}
+            .addOnFailureListener { }
+    }
+
 }

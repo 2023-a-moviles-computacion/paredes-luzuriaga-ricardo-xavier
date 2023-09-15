@@ -24,15 +24,15 @@
         android:id="@+id/etENombre"
         android:layout_width="300dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="404dp"
-        android:textColor="#091442"
+        android:layout_marginTop="156dp"
         android:ems="10"
         android:hint="Nombre"
         android:inputType="text"
-        app:layout_constraintBottom_toTopOf="@+id/btnEditar"
-        app:layout_constraintEnd_toEndOf="@+id/btnEditar"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/btnEditar" />
+        android:textColor="#091442"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView19"
@@ -44,7 +44,9 @@
         app:layout_constraintBottom_toTopOf="@+id/etENombre"
         app:layout_constraintEnd_toEndOf="@+id/etENombre"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/etENombre" />
+        app:layout_constraintStart_toStartOf="@+id/etENombre"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.983" />
 
     <TextView
         android:id="@+id/textView22"
@@ -69,12 +71,14 @@
         app:layout_constraintBottom_toTopOf="@+id/etEPais"
         app:layout_constraintEnd_toEndOf="@+id/etEPais"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/etEPais" />
+        app:layout_constraintStart_toStartOf="@+id/etEPais"
+        app:layout_constraintTop_toBottomOf="@+id/etEFecha"
+        app:layout_constraintVertical_bias="0.615" />
 
     <EditText
         android:id="@+id/etEFecha"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="301dp"
+        android:layout_height="40dp"
         android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="Fecha"
@@ -87,17 +91,17 @@
 
     <EditText
         android:id="@+id/etEPais"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="136dp"
+        android:layout_width="300dp"
+        android:layout_height="39dp"
         android:ems="10"
         android:hint="País"
         android:inputType="text"
         android:textColor="#091442"
-        app:layout_constraintEnd_toEndOf="@+id/etENombre"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/etENombre"
-        app:layout_constraintTop_toBottomOf="@+id/etENombre" />
+        app:layout_constraintBottom_toTopOf="@+id/btnEditar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etEFecha"
+        app:layout_constraintVertical_bias="0.191" />
 
     <ImageButton
         android:id="@+id/imbERegresar"

@@ -37,49 +37,50 @@
         android:id="@+id/etPosicionJ"
         android:layout_width="310dp"
         android:layout_height="50dp"
-        android:layout_marginTop="284dp"
+        android:layout_marginTop="128dp"
         android:ems="10"
         android:hint="Posición"
-        android:textColor="#091442"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/etNombreJ"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/etNombreJ"
-        app:layout_constraintTop_toBottomOf="@+id/etNombreJ" />
+        android:textColor="#091442"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etFechaNacimientoJ" />
 
     <EditText
         android:id="@+id/etDorsalJ"
         android:layout_width="310dp"
         android:layout_height="50dp"
-        android:layout_marginTop="364dp"
         android:ems="10"
         android:hint="Dorsal"
-        android:textColor="#091442"
         android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@+id/etNombreJ"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/etNombreJ"
-        app:layout_constraintTop_toBottomOf="@+id/etNombreJ" />
+        android:textColor="#091442"
+        app:layout_constraintBottom_toTopOf="@+id/btnGuardarJ"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etPosicionJ"
+        app:layout_constraintVertical_bias="0.191" />
 
     <EditText
         android:id="@+id/etEdadJ"
         android:layout_width="125dp"
         android:layout_height="50dp"
-        android:layout_marginTop="28dp"
         android:ems="10"
         android:hint="Edad"
-        android:textColor="#091442"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/etNombreJ"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/etNombreJ"
+        android:textColor="#091442"
+        app:layout_constraintBottom_toTopOf="@+id/etFechaNacimientoJ"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etNombreJ" />
 
     <EditText
         android:id="@+id/etEstaturaJ"
         android:layout_width="125dp"
         android:layout_height="50dp"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="64dp"
         android:ems="10"
         android:hint="Estatura"
         android:inputType="text"
@@ -91,35 +92,40 @@
 
     <EditText
         android:id="@+id/etFechaNacimientoJ"
-        android:layout_width="125dp"
-        android:layout_height="50dp"
+        android:layout_width="304dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="96dp"
         android:ems="10"
         android:hint="Fecha de Nacimiento"
         android:inputType="date"
         android:textColor="#091442"
-        tools:layout_editor_absoluteX="50dp"
-        tools:layout_editor_absoluteY="263dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etNombreJ"
         tools:ignore="MissingConstraints" />
 
     <RadioButton
         android:id="@+id/rbtSi"
         android:layout_width="110dp"
         android:layout_height="50dp"
-        android:textColor="#091442"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="60dp"
         android:text="Si"
+        android:textColor="#091442"
+        app:layout_constraintBottom_toTopOf="@+id/etPosicionJ"
         app:layout_constraintEnd_toEndOf="@+id/etFechaNacimientoJ"
-        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintHorizontal_bias="0.077"
         app:layout_constraintStart_toStartOf="@+id/etFechaNacimientoJ"
-        app:layout_constraintTop_toBottomOf="@+id/etFechaNacimientoJ" />
+        app:layout_constraintTop_toBottomOf="@+id/etFechaNacimientoJ"
+        app:layout_constraintVertical_bias="0.0" />
 
     <RadioButton
         android:id="@+id/brtNo"
         android:layout_width="110dp"
         android:layout_height="50dp"
-        android:layout_marginStart="76dp"
-        android:textColor="#091442"
+        android:layout_marginStart="32dp"
         android:text="No"
+        android:textColor="#091442"
         app:layout_constraintBottom_toBottomOf="@+id/rbtSi"
         app:layout_constraintStart_toEndOf="@+id/rbtSi"
         app:layout_constraintTop_toTopOf="@+id/rbtSi"
@@ -129,12 +135,12 @@
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="20dp"
         android:text="¿Está Convocado?"
         android:textColor="#091442"
         app:layout_constraintBottom_toTopOf="@+id/rbtSi"
         app:layout_constraintEnd_toEndOf="@+id/rbtSi"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/rbtSi" />
 
     <Button
@@ -145,9 +151,11 @@
         android:background="#3562A6"
         android:text="Guardar Jugador"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/etNombreJ"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/etNombreJ"
-        app:layout_constraintTop_toBottomOf="@+id/etNombreJ" />
+        app:layout_constraintTop_toBottomOf="@+id/etNombreJ"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

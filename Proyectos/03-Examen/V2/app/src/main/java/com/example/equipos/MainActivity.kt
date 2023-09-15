@@ -2,6 +2,7 @@ package com.example.equipos
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
 import android.widget.Button
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -18,6 +19,9 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        BaseDatos.tablaEquipo = SQLHelperEquipo(applicationContext)
+        BaseDatos.tablaJugador = SQLHelperJugadores(applicationContext)
 
 
         val botonEquipos = findViewById<Button>(R.id.btnEquipos)
